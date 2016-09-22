@@ -107,7 +107,7 @@ void gerarVetorDesequilibrado(int probabilidades,int x,int v[]){
 	
 	for(en = 0 ; en < x ; en++){
 		aux = rand() % x;
-		i = rand() % probabilidades + 1;
+		i = rand() % probabilidades;
 		if(i < probabilidades){
 			v[aux] = i;
 		}else{
