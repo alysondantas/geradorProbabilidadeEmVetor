@@ -98,6 +98,7 @@ void exibeVetor(int x, int v[]){
 }
 
 void gerarVetorDesequilibrado(int probabilidades,int x,int v[]){
+	gerarVetorEquilibrado(probabilidades, x, v);
 	srand( (unsigned)time(NULL) );
 	printf("A probabilidade vai de: 0 ate %d\n", RAND_MAX);
     
