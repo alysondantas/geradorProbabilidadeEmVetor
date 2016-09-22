@@ -7,6 +7,7 @@ void exibeVetor(int, int v[]);
 void gerarVetorDesequilibrado(int,int,int v[]);
 int obterNumero(int, int v[]);
 void insereProbabilidade(int, int, int v[]);
+void mostrarProbabilidade(int, int, int v[]);
 
 
 int main(){
@@ -42,7 +43,7 @@ int main(){
     while(quit == 0){
     	
     	printf("============MENU DO GERADOR DE PROBABILIDADE============\n\n");
-    	printf("1) Criar vetor aleatorio equilibrado\n2) Exibe vetor\n3) Criar vetor aleatorio desequilibrado\n4) Selecionar um numero\n5) Inserir probabilidade\n6) sair\n");
+    	printf("1) Criar vetor aleatorio equilibrado\n2) Exibe vetor\n3) Criar vetor aleatorio desequilibrado\n4) Selecionar um numero\n5) Inserir probabilidade\n6) mostrar probabilidades\n7) Sair\n");
     	scanf("%d", &opcao_menu);
     	
     	switch(opcao_menu){
@@ -64,8 +65,12 @@ int main(){
 			insereProbabilidade(probabilidades, x, v);
 			break;
 		case 6:
+			mostrarProbabilidade(probabilidades, x, v);
+			break;
+		case 7:
 			quit = 1;
 			break;
+				
 		default:
 			
 			printf("Opção invalida.");
@@ -138,4 +143,23 @@ void insereProbabilidade(int probabilidades, int x, int v[]){
 		v[aux] = num;
 	}
 	
+}
+
+void mostrarProbabilidade(int probabilidades, int x, int v[]){
+	int v1[probabilidades];
+	int aux,i, valor;
+	
+	for(aux = 0 ; aux < probabilidades ; aux++){
+		v1[aux] = 0;
+	}
+	
+	for(aux = 0 ; aux < x ; aux++){
+		i = v[aux];
+		v1[i] = v1[i] + 1;
+	}
+	
+	for(aux = 0 ; aux < probabilidades ; aux++){
+		valor = (100 * v1[aux]) / x;
+		printf("%d de %d s e a porcentagem é %d \n", v1[aux], aux, valor);
+	}
 }
